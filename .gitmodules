@@ -1,0 +1,3 @@
+[submodule "vendor/gems/intermodal"]
+	path = vendor/gems/intermodal
+	url = git://github.com/hosh/intermodal.git
