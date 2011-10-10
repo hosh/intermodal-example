@@ -7,13 +7,23 @@ gem 'intermodal', :path => 'vendor/gems/intermodal'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'yajl-ruby'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+# Console convenience
+group :development do
+  gem 'awesome_print', :require => 'ap'
+  gem 'pry'
+end
 
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+# Bundle gems for certain environments:
+group :test do
+   gem 'rspec'
+   gem 'rspec-rails'
+   gem 'database_cleaner'
+   gem 'remarkable', '>=4.0.0.alpha4'
+   gem 'remarkable_activemodel', '>=4.0.0.alpha4'
+   gem 'remarkable_activerecord', '>=4.0.0.alpha4'
+   gem 'machinist'
+   gem 'forgery'
+end
 
