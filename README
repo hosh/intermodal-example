@@ -25,14 +25,15 @@ Run Bundler
 (2) Generate account models
 
     rails generate model account name:string
-
-Mixin Intermodal::Models::Account
+    rails generate model access_credential identity:string account_id:integer
 
     class Account < ActiveRecord::Base
       include Intermodal::Models::Account
     end
 
-rails generate model access_credential identity:string account_id:integer
+    class AccessCredential < ActiveRecord::Base
+      include Intermodal::Models::AccessCredential
+    end
 
 TODO: Turn this into a rails generator, rails generate intermodal:accounts
-TODO: Add RSpec macros for Account models
+TODO: Add RSpec macros for Account and AccessCredential models
