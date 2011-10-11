@@ -8,6 +8,7 @@ gem 'intermodal', :path => 'vendor/gems/intermodal'
 
 gem 'pg'
 gem 'yajl-ruby'
+gem 'rake'
 
 # Console convenience
 group :development do
@@ -17,7 +18,7 @@ end
 
 # Bundle gems for certain environments:
 group :test do
-   gem 'rspec'
+   #gem 'rspec'
    gem 'rspec-rails'
    gem 'database_cleaner'
    gem 'remarkable', '>=4.0.0.alpha4'
