@@ -1,6 +1,6 @@
-class CreateAccountCredentials < ActiveRecord::Migration
+class CreateAccessCredentials < ActiveRecord::Migration
   def change
-    create_table :account_credentials do |t|
+    create_table :access_credentials do |t|
       t.integer :account_id
       t.string :identity
 

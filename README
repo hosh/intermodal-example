@@ -25,6 +25,6 @@ Run Bundler
 (2) Generate account models
 
 rails generate model account name:string
-rails generate model account_credentials identity:string account_id:integer
+rails generate model access_credential identity:string account_id:integer
 
 TODO: Turn this into a rails generator, rails generate intermodal:accounts
