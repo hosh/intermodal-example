@@ -1,3 +1,4 @@
+$LOAD_PATH.unshift('.')
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
@@ -15,6 +16,9 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
   Bundler.require(:default, Rails.env)
 end
+
+# API Engines
+require 'app/api/v1_0'
 
 module IntermodalExample
   class Application < Rails::Application
