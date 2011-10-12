@@ -4,6 +4,10 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'remarkable/active_record'
 
+# Debugging
+require 'ap'
+require 'pry'
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir["spec/support/**/*.rb"].map { |f| f.gsub(%r{.rb$}, '') }.each { |f| require f }
@@ -19,16 +23,10 @@ RSpec.configure do |config|
   #config.use_transactional_examples false
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    #DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.strategy = :truncation # :transaction strategy currently does not work
+    DatabaseCleaner.clean_with :truncation
   end
 
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
-
+  config.before(:each)  { DatabaseCleaner.start }
+  config.after(:each)   { DatabaseCleaner.clean }
 end
