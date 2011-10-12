@@ -1,20 +1,16 @@
 require 'machinist/active_record'
 require 'forgery'
 
-module Machinist
-  class Lathe
-    include Intermodal::Let
-
-    let(:sham_company_name) { Forgery(:name).company_name }
-    let(:sham_name)         { Forgery(:lorem_ipsum).words(3) }
-  end
-end
+SHAM = {
+  name:          ->{ Forgery(:lorem_ipsum).words(3) },
+  company_name:  ->{ Forgery(:name).company_name }
+}
 
 # Blueprints
 Account.blueprint do
-  name { "#{sham_company_name} #{sn}" }
+  name { SHAM[:company_name].() }
 end
 
 Thing.blueprint do
-  name { "#{sham_name} #{sn}" }
+  name { SHAM[:name].() }
 end
