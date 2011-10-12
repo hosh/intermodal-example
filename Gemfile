@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 gem 'intermodal', :path => 'vendor/gems/intermodal'
+gem 'warden'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -26,7 +27,7 @@ group :test do
    gem 'remarkable', '>=4.0.0.alpha4'
    gem 'remarkable_activemodel', '>=4.0.0.alpha4'
    gem 'remarkable_activerecord', '>=4.0.0.alpha4'
-   gem 'machinist'
+   gem 'machinist', '>=2.0.0.beta2'
    gem 'forgery'
 end
 
