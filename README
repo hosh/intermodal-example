@@ -37,3 +37,15 @@ Run Bundler
 
 TODO: Turn this into a rails generator, rails generate intermodal:accounts
 TODO: Add RSpec macros for Account and AccessCredential models
+
+(3) Generate access token model
+
+    class AccessToken
+      include Intermodal::Models::AccessToken
+    end
+
+You will need to establish a connection (defaults to localhost):
+
+    AccessToken.establish_connection!
+
+TODO: Move this into a Rack session middleware
