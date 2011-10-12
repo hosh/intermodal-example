@@ -1,6 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+# See Pull Request https://github.com/rails/rails/pull/3243
+# QueryCache/ConnectionPool thread fix (was #1670)
+#gem 'activerecord', :path => 'vendor/rails/activerecord'
+
+gem 'rails', '3.1.1'
 gem 'intermodal', :path => 'vendor/gems/intermodal'
 gem 'warden'
 gem 'redis'

@@ -70,5 +70,15 @@ module IntermodalExample
       end
     end
 
+    # ActiveRecord 3.1 inserts a Rack middleware for managing query caches
+    # Since there is no configuration to actually disable it, then this kludge
+    # comes in later to remove it from the stack.
+    #
+    # QueryCaching needs to be disabled so that the tests work. It remains to be
+    # seen if the tests can be rewritten with QueryCache in mind. I have not
+    # tested this in server mode yet.
+    initializer 'intermodal_example.hack_active_record', :after => 'eager_load!' do
+      config.middleware.delete ActiveRecord::QueryCache
+    end
   end
 end

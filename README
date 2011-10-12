@@ -54,3 +54,22 @@ TODO: Move this into a Rack session middleware
 
 TODO: Figure out why this is not working for Rails 3.1
 TODO: Document the easiest method to remove Rack::Lock
+
+(5) Disable ActiceRecord::QueryCache
+
+ActiveRecord 3.1 inserts a Rack middleware for managing query caches
+Since there is no configuration to actually disable it, then this kludge
+comes in later to remove it from the stack.
+
+QueryCaching needs to be disabled so that the tests work. It remains to be
+seen if the tests can be rewritten with QueryCache in mind. I have not
+tested this in server mode yet.
+
+    # Insert this into your application.rb file
+    initializer 'intermodal_example.hack_active_record', :after => 'eager_load!' do
+      config.middleware.delete ActiveRecord::QueryCache
+    end
+
+TODO: Pull request to Rails 
+TODO: Figure out the real reason this is happening
+TODO: Test externally to see if Intermodal will work with query cache
