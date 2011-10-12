@@ -49,3 +49,8 @@ You will need to establish a connection (defaults to localhost):
     AccessToken.establish_connection!
 
 TODO: Move this into a Rack session middleware
+
+(4) Disable Rack::Lock from the default middleware stack
+
+TODO: Figure out why this is not working for Rails 3.1
+TODO: Document the easiest method to remove Rack::Lock
